@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import es.fpdual.model.Person;
+import es.fpdual.utility.CompareProvider;
 
 /**
  * Hello world!
@@ -28,10 +29,19 @@ public class App {
 
         // Collections.sort(personList, (person1, person2) ->
         // Person.compareByAge(person1, person2));
-
         Collections.sort(personList, Person::compareByAge);
 
         System.out.println("Ordered list by age: ");
         personList.forEach(p -> System.out.println(p));
+        System.out.println("");
+
+        CompareProvider comparator = new CompareProvider();
+
+        // Collections.sort(personList, (p1, p2) -> comparator.compareByName(p1, p2));
+        Collections.sort(personList, comparator::compareByName);
+        System.out.println("Ordered list by name: ");
+        personList.forEach(System.out::println);
+        System.out.println("");
+
     }
 }
