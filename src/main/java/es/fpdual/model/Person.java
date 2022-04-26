@@ -15,4 +15,8 @@ public class Person {
     public static int compareByAge(Person a, Person b) {
         return a.getAge().compareTo(b.getAge());
     }
+
+    public int compareByName(Person p) {
+        return this.getName().compareTo(p.getName());
+    }
 }
